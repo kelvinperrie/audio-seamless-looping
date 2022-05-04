@@ -1,3 +1,17 @@
 .sound-test {
     padding: 1em;
 }
+
+.row {
+    margin: 1em;
+    background-color: #f5da88;
+}
+
+table {
+    margin: 1em;
+}
+td {
+    border: 1px solid white;
+    padding: 0.5em;
+    background-color: wheat;
+}
