@@ -269,18 +269,17 @@
 
                 <div class="sound-test">
                     <div class="description">
-                        Web Audio API; mp3 - can't test locally? cors :(
+                        Web Audio API; mp3
                     </div>
                     <button type="button" class="btn btn-primary" id="st6-start">Start</button>
                     <button type="button" class="btn btn-primary" id="st6-stop">Stop</button>
                     <script type="text/javascript">
                         $(document).ready(function() {
-        
-                            function WebAudioSetup() {
-                                var actx = new (AudioContext || webkitAudioContext)(),
+                            var actx = new (AudioContext || webkitAudioContext)(),
                                 src = "audio/river-5sec.mp3",
                                 audioData, srcNode;  // global so we can access them from handlers
-        
+
+                            function WebAudioSetup() {
                                 // Load some audio (CORS need to be allowed or we won't be able to decode the data)
                                 fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode);
                             }
@@ -321,7 +320,7 @@
                 <table>
                     <tr>
                         <td>Chrome</td>
-                        <td>?</td>
+                        <td>can't test locally? cors :(</td>
                     </tr>
                     <tr>
                         <td>Edge</td>
@@ -369,7 +368,7 @@
                 <table>
                     <tr>
                         <td>Chrome</td>
-                        <td>?</td>
+                        <td>Good!</td>
                     </tr>
                     <tr>
                         <td>Edge</td>
