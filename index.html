@@ -275,11 +275,12 @@
                     <button type="button" class="btn btn-primary" id="st6-stop">Stop</button>
                     <script type="text/javascript">
                         $(document).ready(function() {
-                            var actx = new (AudioContext || webkitAudioContext)(),
+                            var actx = null,
                                 src = "audio/river-5sec.mp3",
                                 audioData, srcNode;  // global so we can access them from handlers
 
                             function WebAudioSetup() {
+                                actx = new (AudioContext || webkitAudioContext)();
                                 // Load some audio (CORS need to be allowed or we won't be able to decode the data)
                                 fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode);
                             }
