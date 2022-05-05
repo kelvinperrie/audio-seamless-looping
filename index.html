@@ -17,26 +17,39 @@
 
 <body>
     <div class="container-fluid">
-        
+        <p>
+            <h1>Seamless audio loops ...</h1>
+        </p>
+        <p>
+            Can we get a seamless loop of audio in javascript/HTML? Heck if I know. Let's find out.
+        </p>
+        <p>
+            I'm just testing these in the browsers I have easy access to. My browsers are all on WINDOWS. If you want to see the code then look in the github repo at <a target="_blank" href="https://github.com/kelvinperrie/audio-seamless-looping">https://github.com/kelvinperrie/audio-seamless-looping</a>
+        </p>
+        <p>
+            NOTE: some stuff likes to throw js errors if you try to set it up before the page has been interacted with. I think this is a browser thing to stop pages from playing sounds when they are first opened - the user has to do something on the page before the browser will let you setup the sound.
+        </p>
         <table>
             <thead>
                 <tr>
                     <th>Test</th>
                     <th>Notes</th>
                     <th></th>
+                    <th>Example</th>
                     <th>Chrome at home</th>
-                    <th>Chrome at work</th>
+                    <th>Chrome at work<br/>(hosted netlify) <br/>v101.0.4951.54</th>
                     <th>Edge at home</th>
                     <th>Edge at work<br/>(hosted locally) <br/>v101.0.1210.32</th>
                     <th>Edge at work<br/>(hosted netlify) <br/>v101.0.1210.32</th>
-                    <th>Firefox?</th>
-                    <th>Safari? I dunno</th>
+                    <th>Firefox at work<br/>v100.0<br/>ugh proxy issues</th>
+                    <th>Safari? Who cares</th>
+                    <th>Conclusion</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>howler.js playing an MP3</td>
-                    <td>loop = true. Howler is pretty easy to use.</td>
+                    <td>loop = true. Howler is pretty easy to use and well documented.</td>
                     <td>
                         <button type="button" class="btn btn-primary" id="st1-start">Start</button>
                         <button type="button" class="btn btn-primary" id="st1-stop">Stop</button>
@@ -56,17 +69,37 @@
                             });
                         </script>
                     </td>
-                    <td>Pause :(</td>
-                    <td></td>
+                    <td>
+<pre>
+$(document).ready(function() {
+    var sound1 = new Howl({
+        src: ['audio/river-5sec.mp3'],
+        loop: true,
+        volume: 0.5
+    });
+    $("#st1-start").on("click", function() {
+        sound1.play();
+    });
+    $("#st1-stop").on("click", function() {
+        sound1.stop();
+    });
+});
+</pre>
+                    </td>
+                    <td>Pause</td>
+                    <td>No pause</td>
                     <td>Pause</td>
                     <td>Pause</td>
                     <td>No pause</td>
                     <td></td>
                     <td></td>
+                    <td class="conclusion conclusion-ok">
+                        Pretty good - it's easy to use, well documented, and seems to have a big user base. No pauses between loops when the site is hosted, but when running from the file system (e.g. D:\code\index.html) during development it has pauses between loops. So that's no ideal, but if you're aware of it then should be ok.
+                    </td>
                 </tr>
                 <tr>
                     <td>howler.js playing an OGG</td>
-                    <td>loop = true</td>
+                    <td>loop = true. Some people reported issues with mp3s in howler but not other file types ... </td>
                     <td>
                         <button type="button" class="btn btn-primary" id="st2-start">Start</button>
                         <button type="button" class="btn btn-primary" id="st2-stop">Stop</button>
@@ -86,13 +119,31 @@
                             });
                         </script>
                     </td>
-                    <td>Pause :(</td>
-                    <td></td>
+                    <td>
+<pre>
+$(document).ready(function() {
+    var sound2 = new Howl({
+        src: ['audio/river-5sec.ogg'],
+        loop: true,
+        volume: 0.5
+    });
+    $("#st2-start").on("click", function() {
+        sound2.play();
+    });
+    $("#st2-stop").on("click", function() {
+        sound2.stop();
+    });
+});
+</pre>
+                    </td>
+                    <td>Pause</td>
+                    <td>No pause</td>
                     <td>Pause</td>
                     <td>Pause</td>
                     <td>No pause</td>
                     <td></td>
                     <td></td>
+                    <td class="conclusion conclusion-ok">ditto above</td>
                 </tr>
                 <tr>
                     <td>howler.js playing a WAV</td>
@@ -116,13 +167,31 @@
                             });
                         </script>
                     </td>
-                    <td>Pause :(</td>
-                    <td></td>
+                    <td>
+                        <pre>
+$(document).ready(function() {
+    var sound8 = new Howl({
+        src: ['audio/river-5sec.wav'],
+        loop: true,
+        volume: 0.5
+    });
+    $("#st8-start").on("click", function() {
+        sound8.play();
+    });
+    $("#st8-stop").on("click", function() {
+        sound8.stop();
+    });
+});
+                        </pre>
+                    </td>
+                    <td>Pause</td>
+                    <td>No pause</td>
                     <td>Pause</td>
                     <td>Pause</td>
                     <td>No pause</td>
                     <td></td>
                     <td></td>
+                    <td class="conclusion conclusion-ok">ditto above</td>
                 </tr>
                 <tr>
                     <td>HTMLAudioElement/new Audio(...)</td>
@@ -143,13 +212,28 @@
                             });
                         </script>
                     </td>
-                    <td>Pause :(</td>
-                    <td></td>
+                    <td>
+                        <pre>
+$(document).ready(function() {
+    let myAudio = new Audio('audio/river-5sec.mp3');
+    myAudio.loop = true; 
+    $("#st3-start").on("click", function() {
+        myAudio.play();
+    });
+    $("#st3-stop").on("click", function() {
+        myAudio.pause();
+    });
+});
+                        </pre>
+                    </td>
                     <td>Pause</td>
                     <td>Pause</td>
                     <td>Pause</td>
+                    <td>Pause</td>
+                    <td>Pause</td>
                     <td></td>
                     <td></td>
+                    <td class="conclusion conclusion-nope">Awful. Garbage. Complete trash.<br/>Easy to use but always has a pause between loops.</td>
                 </tr>
                 <tr>
                     <td>HTMLAudioElement/new Audio(...) with event listener</td>
@@ -175,17 +259,37 @@
                             });
                         </script>
                     </td>
+                    <td>
+                        <pre>
+$(document).ready(function() {
+    var audio_file4 = new Audio('audio/river-5sec.mp3')
+    audio_file4.addEventListener('timeupdate', function(){
+        var buffer = .4
+        if(this.currentTime > this.duration - buffer){
+            this.currentTime = 0
+        }
+    });
+    $("#st4-start").on("click", function() {
+        audio_file4.play()
+    });
+    $("#st4-stop").on("click", function() {
+        audio_file4.pause();
+    });
+});
+                        </pre>
+                    </td>
+                    <td>No pause</td>
+                    <td>No pause</td>
+                    <td>No pause</td>
+                    <td>No pause</td>
                     <td>No pause</td>
                     <td></td>
-                    <td>No pause</td>
-                    <td>No pause</td>
-                    <td>No pause</td>
                     <td></td>
-                    <td></td>
+                    <td class="conclusion conclusion-kindofok">Performed well with no pauses between loops, but I'm a bit hesitant because you have to specify a buffer value; and do you need to figure this out for every different file or can you always go with .4? Will it work in all situations for all browsers? What is the secret number?</td>
                 </tr>
                 <tr>
                     <td>SeamlessLoop.js</td>
-                    <td>Using an mp3. You have to know the length of the track which is a bit of a hassle. Code is pretty straight forward but not well documented; needed some guessing/trial &amp; error to get it working.</td>
+                    <td>Using an mp3. You have to know the length of the track which is a bit of a hassle.</td>
                     <td>
                         <button type="button" class="btn btn-primary" id="st5-start">Start</button>
                         <button type="button" class="btn btn-primary" id="st5-stop">Stop</button>
@@ -218,13 +322,46 @@
                             });
                         </script>
                     </td>
-                    <td>Tiny pause?</td>
-                    <td></td>
-                    <td>Tiny pause?</td>
+                    <td>
+                        <pre>
+$(document).ready(function() {
+
+    let loop = new SeamlessLoop();
+
+    var setup = false;
+
+    $("#st5-start").on("click", function() {
+        if(!setup) {
+            // 5000 as length of sound
+            loop.addUri('audio/river-5sec.mp3', 5000, 'sound1'); 
+            // do we need two sounds?
+            //loop.addUri('audio/two.mp3', 5000, 'sound2');
+            // callback happens when sounds are preloaded
+            loop.callback(soundsLoaded); 
+            function soundsLoaded() {
+                // let n = 1; // what is the point of this?
+                // loop.start('sound' + n);
+                loop.start('sound1')
+            }
+            setup = true;
+        } else {
+            loop.start('sound1')
+        }
+    });
+    $("#st5-stop").on("click", function() {
+        loop.stop();
+    });
+});
+                        </pre>
+                    </td>
                     <td>No pause</td>
                     <td>No pause</td>
+                    <td>No pause</td>
+                    <td>No pause</td>
+                    <td>No pause</td>
                     <td></td>
                     <td></td>
+                    <td class="conclusion conclusion-kindofok">I think this was good in all situations. It is pretty easy to use, however, it is not well documented and I had to do some guessing aka trial &amp; error to get it working. Also, you need to know the length of the track which is a pain &amp; not something I want to keep track of.</td>
                 </tr>
                 <tr>
                     <td>Web Audio API</td>
@@ -275,13 +412,67 @@
                             });
                         </script>
                     </td>
+                    <td>
+                        <pre>
+$(document).ready(function() {
+    // global so we can access them from handlers
+    var actx = null,
+        src = "audio/river-5sec.mp3",
+        audioData, srcNode;  
+
+    function WebAudioSetup() {
+        actx = new (AudioContext || webkitAudioContext)();
+        // Load some audio (CORS need to be allowed 
+        // or we won't be able to decode the data)
+        fetch(src, {mode: "cors"})
+        .then(function(resp) {return resp.arrayBuffer()}).then(decode);
+    }
+    // Decode the audio file, then start the show
+    function decode(buffer) {
+        actx.decodeAudioData(buffer, playLoop);
+    }
+
+    // Sets up a new source node as needed as 
+    // stopping will render current invalid
+    function playLoop(abuffer) {
+        // create a reference for control buttons
+        if (!audioData) audioData = abuffer; 
+        // create audio source 
+        srcNode = actx.createBufferSource(); 
+        // use decoded buffer 
+        srcNode.buffer = abuffer;     
+        // create output        
+        srcNode.connect(actx.destination);    
+        // takes care of perfect looping
+        srcNode.loop = true;                  
+        srcNode.start();
+    }
+
+    
+    var webAudioHasBeenSetup = false;
+
+    $("#st6-start").on("click", function() {
+        if(webAudioHasBeenSetup) {
+            playLoop(audioData);
+        } else {
+            WebAudioSetup();
+        }
+    });
+    $("#st6-stop").on("click", function() {
+        srcNode.stop();
+        srcNode = null; 
+    });
+});
+                        </pre>
+                    </td>
                     <td>No pause</td>
-                    <td></td>
+                    <td>No pause</td>
                     <td>No pause</td>
                     <td>Can't test - CORs</td>
                     <td>No pause</td>
                     <td></td>
                     <td></td>
+                    <td class="conclusion conclusion-kindofok">It works, but annoying you can't run local in dev env because CORs blocks files from loading and it's pretty hard to setup and use. I think there is a visual code plugin that would get around this by hosting the files over localhost?</td>
                 </tr>
                 <tr>
                     <td>loopify.js</td>
@@ -313,13 +504,39 @@
                             });
                         </script>
                     </td>
+                    <td>
+                        <pre>
+$(document).ready(function() {
+
+    var loopy = null;
+    loopify("audio/river-5sec.mp3",function(err,loop) {
+
+        // If something went wrong, `err` is supplied
+        if (err) {
+            console.log(err);
+        }
+
+        loopy = loop;
+
+    });
+
+    $("#st7-start").on("click", function() {
+        loopy.play();
+    });
+    $("#st7-stop").on("click", function() {
+        loopy.stop();
+    });
+});
+                        </pre>
+                    </td>
                     <td>No pause</td>
-                    <td></td>
+                    <td>No pause</td>
                     <td>No pause</td>
                     <td>Can't test - CORs</td>
                     <td>No pause</td>
                     <td></td>
                     <td></td>
+                    <td class="conclusion conclusion-kindofok">Mostly ok, but annoying you can't easily test locally. I think this is a wrapper around Web Audio API and it's a lot easier setup than using Web Audio API directly. CORs still a pain when in local dev environment because it blocks files; ditto above can get visual code plugin to fix CORs.</td>
                 </tr>
             </tbody>
         </table>

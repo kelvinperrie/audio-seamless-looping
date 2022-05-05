@@ -1,36 +1,48 @@
 .sound-test {
-    padding: 1em;
+  padding: 1em;
 }
 
 .row {
-    margin: 1em;
-    background-color: #bbdefb;
+  margin: 1em;
+  background-color: #bbdefb;
 }
 
 table {
-    margin: 1em 0 ;
+  margin: 1em 0 ;
 }
 
 table {
-    width: 100%;
-  }
+  width: 100%;
+  font-size: .75em;
+}
   
-  tr {
-    width: 100%;
-    padding: 18px 0;
-  }
-  tr:nth-of-type(odd) {
-    background: #EEEEEE;
-  }
-  thead th,  thead tr {
-    background: #063a42 !important;
-    color: #fff;
-  }
-  
-  td, table thead th {
-    padding: 0.5em;
-    border: 1px solid #999999;
-  }
-  .btn {
-      margin: 0.25em;
-  }
+tr {
+  width: 100%;
+  padding: 18px 0;
+}
+tr:nth-of-type(odd) {
+  background: #EEEEEE;
+}
+thead th,  thead tr {
+  background: #063a42 !important;
+  color: #fff;
+}
+
+td, table thead th {
+  padding: 0.5em;
+  border: 1px solid #999999;
+}
+.btn {
+    margin: 0.25em;
+}
+
+.conclusion-ok {
+background-color: #3bf34e;
+}
+
+.conclusion-nope {
+background-color: #f33b3b;
+}
+.conclusion-kindofok {
+background-color: #3bddf3
+}
