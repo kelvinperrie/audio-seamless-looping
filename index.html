@@ -27,8 +27,8 @@
                     <th>Chrome at home</th>
                     <th>Chrome at work</th>
                     <th>Edge at home</th>
-                    <th>Edge at work (hosted locally)</th>
-                    <th>Edge at work (hosted netlify)</th>
+                    <th>Edge at work<br/>(hosted locally) <br/>v101.0.1210.32</th>
+                    <th>Edge at work<br/>(hosted netlify) <br/>v101.0.1210.32</th>
                     <th>Firefox?</th>
                     <th>Safari? I dunno</th>
                 </tr>
@@ -56,10 +56,10 @@
                             });
                         </script>
                     </td>
-                    <td>Has a pause in loop :(</td>
+                    <td>Pause :(</td>
                     <td></td>
-                    <td>Has a pause in loop</td>
-                    <td>Has a pause in loop</td>
+                    <td>Pause</td>
+                    <td>Pause</td>
                     <td>No pause</td>
                     <td></td>
                     <td></td>
@@ -86,10 +86,10 @@
                             });
                         </script>
                     </td>
-                    <td>Has a pause in loop :(</td>
+                    <td>Pause :(</td>
                     <td></td>
-                    <td>Has a pause in loop</td>
-                    <td>Has a pause in loop</td>
+                    <td>Pause</td>
+                    <td>Pause</td>
                     <td>No pause</td>
                     <td></td>
                     <td></td>
@@ -116,17 +116,17 @@
                             });
                         </script>
                     </td>
-                    <td>Has a pause in loop :(</td>
+                    <td>Pause :(</td>
                     <td></td>
-                    <td>Has a pause in loop</td>
-                    <td>Has a pause in loop</td>
+                    <td>Pause</td>
+                    <td>Pause</td>
                     <td>No pause</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>HTMLAudioElement/new Audio(...)</td>
-                    <td>mp3. Pretty easy to use.</td>
+                    <td>Using an mp3. Pretty easy to use.</td>
                     <td>
                         <button type="button" class="btn btn-primary" id="st3-start">Start</button>
                         <button type="button" class="btn btn-primary" id="st3-stop">Stop</button>
@@ -143,17 +143,17 @@
                             });
                         </script>
                     </td>
-                    <td>Has a pause in loop :(</td>
+                    <td>Pause :(</td>
                     <td></td>
-                    <td>Has a pause in loop</td>
-                    <td>Has a pause in loop</td>
+                    <td>Pause</td>
+                    <td>Pause</td>
                     <td>Pause</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HTMLAudioElement/new Audio(...)</td>
-                    <td>using an mp3, also has an event listener setup; pretty straight forward to use. Might need to monkey around with the buffer value to get best results.</td>
+                    <td>HTMLAudioElement/new Audio(...) with event listener</td>
+                    <td>Using an mp3. also has an event listener setup; pretty straight forward to use. Might need to monkey around with the buffer value to get best results.</td>
                     <td>
                         <button type="button" class="btn btn-primary" id="st4-start">Start</button>
                         <button type="button" class="btn btn-primary" id="st4-stop">Stop</button>
@@ -175,17 +175,17 @@
                             });
                         </script>
                     </td>
-                    <td>No pause - sounds good!</td>
+                    <td>No pause</td>
                     <td></td>
-                    <td>No pause - sounds good!</td>
-                    <td>No pause - sounds good!</td>
+                    <td>No pause</td>
+                    <td>No pause</td>
                     <td>No pause</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>SeamlessLoop.js</td>
-                    <td>mp3. You have to know the length of the track which is a bit of a hassle. Code is pretty straight forward but not well documented.</td>
+                    <td>Using an mp3. You have to know the length of the track which is a bit of a hassle. Code is pretty straight forward but not well documented; needed some guessing/trial &amp; error to get it working.</td>
                     <td>
                         <button type="button" class="btn btn-primary" id="st5-start">Start</button>
                         <button type="button" class="btn btn-primary" id="st5-stop">Stop</button>
@@ -203,7 +203,7 @@
                                         //loop.addUri('audio/sounds_river-trimcrop1.mp3', 5000, 'sound2');
                                         loop.callback(soundsLoaded); // callback happens when sounds are preloaded
                                         function soundsLoaded() {
-                                            // let n = 1;
+                                            // let n = 1;           // what is the point of this?
                                             // loop.start('sound' + n);
                                             loop.start('sound1')
                                         }
@@ -228,7 +228,7 @@
                 </tr>
                 <tr>
                     <td>Web Audio API</td>
-                    <td>mp3. It's pretty low level and not particularly straight forward. Bit of a pain locally because CORs blocks the sound files.</td>
+                    <td>Using an mp3. It's pretty low level and not particularly straight forward. Bit of a pain locally because CORs blocks the sound files.</td>
                     <td>
                         <button type="button" class="btn btn-primary" id="st6-start">Start</button>
                         <button type="button" class="btn btn-primary" id="st6-stop">Stop</button>
@@ -284,8 +284,8 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>loopify</td>
-                    <td>using an mp3. I think this is a wrapper around Web Audio API? Bit of a pain locally because CORs blocks loading the sound files.</td>
+                    <td>loopify.js</td>
+                    <td>Using an mp3. Pretty easy to use and setup. I think this is a wrapper around Web Audio API? Bit of a pain when hosting locally because CORs blocks loading the sound files.</td>
                     <td>
                         <button type="button" class="btn btn-primary" id="st7-start">Start</button>
                         <button type="button" class="btn btn-primary" id="st7-stop">Stop</button>
