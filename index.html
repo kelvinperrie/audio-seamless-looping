@@ -18,366 +18,302 @@
 <body>
     <div class="container-fluid">
         
-        <div class="row">
-            <div class="col">
-                <div class="sound-test">
-                    <div class="description">
-                        howler.js playing an MP3; loop = true. Howler is pretty easy to use.
-                    </div>
-                    <button type="button" class="btn btn-primary" id="st1-start">Start</button>
-                    <button type="button" class="btn btn-primary" id="st1-stop">Stop</button>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            var sound1 = new Howl({
-                                src: ['audio/river-5sec.mp3'],
-                                loop: true,
-                                volume: 0.5
+        <table>
+            <thead>
+                <tr>
+                    <th>Test</th>
+                    <th>Notes</th>
+                    <th></th>
+                    <th>Chrome at home</th>
+                    <th>Chrome at work</th>
+                    <th>Edge at home</th>
+                    <th>Edge at work</th>
+                    <th>Firefox?</th>
+                    <th>Safari? I dunno</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>howler.js playing an MP3</td>
+                    <td>loop = true. Howler is pretty easy to use.</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="st1-start">Start</button>
+                        <button type="button" class="btn btn-primary" id="st1-stop">Stop</button>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var sound1 = new Howl({
+                                    src: ['audio/river-5sec.mp3'],
+                                    loop: true,
+                                    volume: 0.5
+                                });
+                                $("#st1-start").on("click", function() {
+                                    sound1.play();
+                                });
+                                $("#st1-stop").on("click", function() {
+                                    sound1.stop();
+                                });
                             });
-                            $("#st1-start").on("click", function() {
-                                sound1.play();
+                        </script>
+                    </td>
+                    <td>Has a pause in loop :(</td>
+                    <td></td>
+                    <td>Has a pause in loop</td>
+                    <td>Has a pause in loop</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>howler.js playing an OGG</td>
+                    <td>loop = true</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="st2-start">Start</button>
+                        <button type="button" class="btn btn-primary" id="st2-stop">Stop</button>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var sound2 = new Howl({
+                                    src: ['audio/river-5sec.ogg'],
+                                    loop: true,
+                                    volume: 0.5
+                                });
+                                $("#st2-start").on("click", function() {
+                                    sound2.play();
+                                });
+                                $("#st2-stop").on("click", function() {
+                                    sound2.stop();
+                                });
                             });
-                            $("#st1-stop").on("click", function() {
-                                sound1.stop();
+                        </script>
+                    </td>
+                    <td>Has a pause in loop :(</td>
+                    <td></td>
+                    <td>Has a pause in loop</td>
+                    <td>Has a pause in loop</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>howler.js playing a WAV</td>
+                    <td>loop = true</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="st8-start">Start</button>
+                        <button type="button" class="btn btn-primary" id="st8-stop">Stop</button>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var sound8 = new Howl({
+                                    src: ['audio/river-5sec.wav'],
+                                    loop: true,
+                                    volume: 0.5
+                                });
+                                $("#st8-start").on("click", function() {
+                                    sound8.play();
+                                });
+                                $("#st8-stop").on("click", function() {
+                                    sound8.stop();
+                                });
                             });
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="col">
-                <table><tr><th>Browser</th><th>Result</th></tr>
-                    <tr>
-                        <td>Chrome</td>
-                        <td>Has a pause in loop :(</td>
-                    </tr>
-                    <tr>
-                        <td>Edge</td>
-                        <td>Has a pause in loop</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="sound-test">
-                    <div class="description">
-                        howler.js playing an OGG; loop = true
-                    </div>
-                    <button type="button" class="btn btn-primary" id="st2-start">Start</button>
-                    <button type="button" class="btn btn-primary" id="st2-stop">Stop</button>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            var sound2 = new Howl({
-                                src: ['audio/river-5sec.ogg'],
-                                loop: true,
-                                volume: 0.5
+                        </script>
+                    </td>
+                    <td>Has a pause in loop :(</td>
+                    <td></td>
+                    <td>Has a pause in loop</td>
+                    <td>Has a pause in loop</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HTMLAudioElement/new Audio(...)</td>
+                    <td>mp3. Pretty easy to use.</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="st3-start">Start</button>
+                        <button type="button" class="btn btn-primary" id="st3-stop">Stop</button>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                let myAudio = new Audio('audio/river-5sec.mp3');
+                                myAudio.loop = true; 
+                                $("#st3-start").on("click", function() {
+                                    myAudio.play();
+                                });
+                                $("#st3-stop").on("click", function() {
+                                    myAudio.pause();
+                                });
                             });
-                            $("#st2-start").on("click", function() {
-                                sound2.play();
+                        </script>
+                    </td>
+                    <td>Has a pause in loop :(</td>
+                    <td></td>
+                    <td>Has a pause in loop</td>
+                    <td>Has a pause in loop</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HTMLAudioElement/new Audio(...)</td>
+                    <td>using an mp3, also has an event listener setup; pretty straight forward to use. Might need to monkey around with the buffer value to get best results.</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="st4-start">Start</button>
+                        <button type="button" class="btn btn-primary" id="st4-stop">Stop</button>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var audio_file4 = new Audio('audio/river-5sec.mp3')
+                                audio_file4.addEventListener('timeupdate', function(){
+                                    var buffer = .4
+                                    if(this.currentTime > this.duration - buffer){
+                                        this.currentTime = 0
+                                    }
+                                });
+                                $("#st4-start").on("click", function() {
+                                    audio_file4.play()
+                                });
+                                $("#st4-stop").on("click", function() {
+                                    audio_file4.pause();
+                                });
                             });
-                            $("#st2-stop").on("click", function() {
-                                sound2.stop();
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="col">
-                <table><tr><th>Browser</th><th>Result</th></tr>
-                    <tr>
-                        <td>Chrome</td>
-                        <td>Has a pause in loop :(</td>
-                    </tr>
-                    <tr>
-                        <td>Edge</td>
-                        <td>Has a pause in loop</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="sound-test">
-                    <div class="description">
-                        howler.js playing a WAV; loop = true
-                    </div>
-                    <button type="button" class="btn btn-primary" id="st8-start">Start</button>
-                    <button type="button" class="btn btn-primary" id="st8-stop">Stop</button>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            var sound8 = new Howl({
-                                src: ['audio/river-5sec.wav'],
-                                loop: true,
-                                volume: 0.5
-                            });
-                            $("#st8-start").on("click", function() {
-                                sound8.play();
-                            });
-                            $("#st8-stop").on("click", function() {
-                                sound8.stop();
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="col">
-                <table><tr><th>Browser</th><th>Result</th></tr>
-                    <tr>
-                        <td>Chrome</td>
-                        <td>Has a pause in loop</td>
-                    </tr>
-                    <tr>
-                        <td>Edge</td>
-                        <td>Has a pause in loop</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="sound-test">
-                    <div class="description">
-                       HTMLAudioElement/new Audio(...)  mp3. Pretty easy to use.
-                    </div>
-                    <button type="button" class="btn btn-primary" id="st3-start">Start</button>
-                    <button type="button" class="btn btn-primary" id="st3-stop">Stop</button>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            let myAudio = new Audio('audio/river-5sec.mp3');
-                            myAudio.loop = true; 
-                            $("#st3-start").on("click", function() {
-                                myAudio.play();
-                            });
-                            $("#st3-stop").on("click", function() {
-                                myAudio.pause();
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="col">
-                <table><tr><th>Browser</th><th>Result</th></tr>
-                    <tr>
-                        <td>Chrome</td>
-                        <td>Has a pause in loop</td>
-                    </tr>
-                    <tr>
-                        <td>Edge</td>
-                        <td>Has a pause in loop</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="sound-test">
-                    <div class="description">
-                       HTMLAudioElement/new Audio(...) using an mp3, also has an event listener setup; pretty straight forward to use. Might need to monkey around with the buffer value to get best results.
-                    </div>
-                    <button type="button" class="btn btn-primary" id="st4-start">Start</button>
-                    <button type="button" class="btn btn-primary" id="st4-stop">Stop</button>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            var audio_file4 = new Audio('audio/river-5sec.mp3')
-                            audio_file4.addEventListener('timeupdate', function(){
-                                var buffer = .4
-                                if(this.currentTime > this.duration - buffer){
-                                    this.currentTime = 0
-                                }
-                            });
-                            $("#st4-start").on("click", function() {
-                                audio_file4.play()
-                            });
-                            $("#st4-stop").on("click", function() {
-                                audio_file4.pause();
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="col">
-                <table><tr><th>Browser</th><th>Result</th></tr>
-                    <tr>
-                        <td>Chrome</td>
-                        <td>No pause - sounds good!</td>
-                    </tr>
-                    <tr>
-                        <td>Edge</td>
-                        <td>No pause - sounds good!</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col">
-                <div class="sound-test">
-                    <div class="description">
-                        SeamlessLoop.js mp3. You have to know the length of the track which is a bit of a hassle. Code is pretty straight forward but not well documented.
-                    </div>
-                    <button type="button" class="btn btn-primary" id="st5-start">Start</button>
-                    <button type="button" class="btn btn-primary" id="st5-stop">Stop</button>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-        
-                            let loop = new SeamlessLoop();
-        
-                            var setup = false;
-        
-                            $("#st5-start").on("click", function() {
-                                if(!setup) {
-                                    // 5000 as length of sound
-                                    loop.addUri('audio/river-5sec.mp3', 5000, 'sound1'); // do we need two sounds?
-                                    //loop.addUri('audio/sounds_river-trimcrop1.mp3', 5000, 'sound2');
-                                    loop.callback(soundsLoaded); // callback happens when sounds are preloaded
-                                    function soundsLoaded() {
-                                        // let n = 1;
-                                        // loop.start('sound' + n);
+                        </script>
+                    </td>
+                    <td>No pause - sounds good!</td>
+                    <td></td>
+                    <td>No pause - sounds good!</td>
+                    <td>No pause - sounds good!</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>SeamlessLoop.js</td>
+                    <td>mp3. You have to know the length of the track which is a bit of a hassle. Code is pretty straight forward but not well documented.</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="st5-start">Start</button>
+                        <button type="button" class="btn btn-primary" id="st5-stop">Stop</button>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+            
+                                let loop = new SeamlessLoop();
+            
+                                var setup = false;
+            
+                                $("#st5-start").on("click", function() {
+                                    if(!setup) {
+                                        // 5000 as length of sound
+                                        loop.addUri('audio/river-5sec.mp3', 5000, 'sound1'); // do we need two sounds?
+                                        //loop.addUri('audio/sounds_river-trimcrop1.mp3', 5000, 'sound2');
+                                        loop.callback(soundsLoaded); // callback happens when sounds are preloaded
+                                        function soundsLoaded() {
+                                            // let n = 1;
+                                            // loop.start('sound' + n);
+                                            loop.start('sound1')
+                                        }
+                                        setup = true;
+                                    } else {
                                         loop.start('sound1')
                                     }
-                                    setup = true;
-                                } else {
-                                    loop.start('sound1')
+                                });
+                                $("#st5-stop").on("click", function() {
+                                    loop.stop();
+                                });
+                            });
+                        </script>
+                    </td>
+                    <td>pretty good ... tiny pause</td>
+                    <td></td>
+                    <td>pretty good ... tiny pause</td>
+                    <td>No pause - sounds good!</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Web Audio API</td>
+                    <td>mp3. It's pretty low level and not particularly straight forward. Bit of a pain locally because CORs blocks the sound files.</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="st6-start">Start</button>
+                        <button type="button" class="btn btn-primary" id="st6-stop">Stop</button>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var actx = null,
+                                    src = "audio/river-5sec.mp3",
+                                    audioData, srcNode;  // global so we can access them from handlers
+    
+                                function WebAudioSetup() {
+                                    actx = new (AudioContext || webkitAudioContext)();
+                                    // Load some audio (CORS need to be allowed or we won't be able to decode the data)
+                                    fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode);
                                 }
-                            });
-                            $("#st5-stop").on("click", function() {
-                                loop.stop();
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="col">
-                <table><tr><th>Browser</th><th>Result</th></tr>
-                    <tr>
-                        <td>Chrome</td>
-                        <td>pretty good ... tiny pause</td>
-                    </tr>
-                    <tr>
-                        <td>Edge</td>
-                        <td>pretty good ... tiny pause</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-
-                <div class="sound-test">
-                    <div class="description">
-                        Web Audio API; mp3. It's pretty low level and not particularly straight forward. Bit of a pain locally because CORs blocks the sound files.
-                    </div>
-                    <button type="button" class="btn btn-primary" id="st6-start">Start</button>
-                    <button type="button" class="btn btn-primary" id="st6-stop">Stop</button>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            var actx = null,
-                                src = "audio/river-5sec.mp3",
-                                audioData, srcNode;  // global so we can access them from handlers
-
-                            function WebAudioSetup() {
-                                actx = new (AudioContext || webkitAudioContext)();
-                                // Load some audio (CORS need to be allowed or we won't be able to decode the data)
-                                fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode);
-                            }
-                            // Decode the audio file, then start the show
-                            function decode(buffer) {
-                                actx.decodeAudioData(buffer, playLoop);
-                            }
-        
-                            // Sets up a new source node as needed as stopping will render current invalid
-                            function playLoop(abuffer) {
-                                if (!audioData) audioData = abuffer;  // create a reference for control buttons
-                                srcNode = actx.createBufferSource();  // create audio source
-                                srcNode.buffer = abuffer;             // use decoded buffer
-                                srcNode.connect(actx.destination);    // create output
-                                srcNode.loop = true;                  // takes care of perfect looping
-                                srcNode.start();                      // play...
-                            }
-        
-                            
-                            var webAudioHasBeenSetup = false;
-        
-                            $("#st6-start").on("click", function() {
-                                if(webAudioHasBeenSetup) {
-                                    playLoop(audioData);
-                                } else {
-                                    WebAudioSetup();
+                                // Decode the audio file, then start the show
+                                function decode(buffer) {
+                                    actx.decodeAudioData(buffer, playLoop);
                                 }
-                            });
-                            $("#st6-stop").on("click", function() {
-                                srcNode.stop();
-                                srcNode = null; 
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="col">
-                <table><tr><th>Browser</th><th>Result</th></tr>
-                    <tr>
-                        <td>Chrome</td>
-                        <td>No pause - sounds good!</td>
-                    </tr>
-                    <tr>
-                        <td>Edge</td>
-                        <td>No pause - sounds good!</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col">
-
-                <div class="sound-test">
-                    <div class="description">
-                        loopify using an mp3. I think this is a wrapper around Web Audio API? Bit of a pain locally because CORs blocks loading the sound files.
-                    </div>
-                    <button type="button" class="btn btn-primary" id="st7-start">Start</button>
-                    <button type="button" class="btn btn-primary" id="st7-stop">Stop</button>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-        
-                            var loopy = null;
-                            loopify("audio/river-5sec.mp3",function(err,loop) {
-        
-                                // If something went wrong, `err` is supplied
-                                if (err) {
-                                    console.log(err);
+            
+                                // Sets up a new source node as needed as stopping will render current invalid
+                                function playLoop(abuffer) {
+                                    if (!audioData) audioData = abuffer;  // create a reference for control buttons
+                                    srcNode = actx.createBufferSource();  // create audio source
+                                    srcNode.buffer = abuffer;             // use decoded buffer
+                                    srcNode.connect(actx.destination);    // create output
+                                    srcNode.loop = true;                  // takes care of perfect looping
+                                    srcNode.start();                      // play...
                                 }
-        
-                                loopy = loop;
-        
+            
+                                
+                                var webAudioHasBeenSetup = false;
+            
+                                $("#st6-start").on("click", function() {
+                                    if(webAudioHasBeenSetup) {
+                                        playLoop(audioData);
+                                    } else {
+                                        WebAudioSetup();
+                                    }
+                                });
+                                $("#st6-stop").on("click", function() {
+                                    srcNode.stop();
+                                    srcNode = null; 
+                                });
                             });
-        
-                            $("#st7-start").on("click", function() {
-                                loopy.play();
+                        </script>
+                    </td>
+                    <td>No pause - sounds good!</td>
+                    <td></td>
+                    <td>No pause - sounds good!</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>loopify</td>
+                    <td>using an mp3. I think this is a wrapper around Web Audio API? Bit of a pain locally because CORs blocks loading the sound files.</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="st7-start">Start</button>
+                        <button type="button" class="btn btn-primary" id="st7-stop">Stop</button>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+            
+                                var loopy = null;
+                                loopify("audio/river-5sec.mp3",function(err,loop) {
+            
+                                    // If something went wrong, `err` is supplied
+                                    if (err) {
+                                        console.log(err);
+                                    }
+            
+                                    loopy = loop;
+            
+                                });
+            
+                                $("#st7-start").on("click", function() {
+                                    loopy.play();
+                                });
+                                $("#st7-stop").on("click", function() {
+                                    loopy.stop();
+                                });
                             });
-                            $("#st7-stop").on("click", function() {
-                                loopy.stop();
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="col">
-                <table><tr><th>Browser</th><th>Result</th></tr>
-                    <tr>
-                        <td>Chrome</td>
-                        <td>No pause - sounds good!</td>
-                    </tr>
-                    <tr>
-                        <td>Edge</td>
-                        <td>No pause - sounds good!</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+                        </script>
+                    </td>
+                    <td>No pause - sounds good!</td>
+                    <td></td>
+                    <td>No pause - sounds good!</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
     </div>
 

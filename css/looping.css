@@ -10,8 +10,27 @@
 table {
     margin: 1em;
 }
-td {
-    border: 1px solid white;
+
+table {
+    width: 100%;
+  }
+  
+  tr {
+    width: 100%;
+    padding: 18px 0;
+  }
+  tr:nth-of-type(odd) {
+    background: #EEEEEE;
+  }
+  thead th,  thead tr {
+    background: #063a42 !important;
+    color: #fff;
+  }
+  
+  td, table thead th {
     padding: 0.5em;
-    background-color: wheat;
-}
+    border: 1px solid #999999;
+  }
+  .btn {
+      margin: 0.25em;
+  }
