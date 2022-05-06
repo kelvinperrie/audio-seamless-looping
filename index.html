@@ -95,6 +95,19 @@ $(document).ready(function() {
                     <td></td>
                     <td class="conclusion conclusion-ok">
                         Pretty good - it's easy to use, well documented, and seems to have a big user base. No pauses between loops when the site is hosted, but when running from the file system (e.g. D:\code\index.html) during development it has pauses between loops. So that's no ideal, but if you're aware of it then should be ok.
+                        <div>
+                            Pros
+                            <ul>
+                                <li>Can get seamless audio loops! (when deployed to webserver)</li>
+                                <li>Easy to use</li>
+                                <li>Good documentaiton</li>
+                            </ul>
+                            Cons
+                            <ul>
+                                <li>Pauses between loops when running a local file in browser</li>
+                            </ul>
+                        </div>
+
                     </td>
                 </tr>
                 <tr>
@@ -233,7 +246,19 @@ $(document).ready(function() {
                     <td>Pause</td>
                     <td></td>
                     <td></td>
-                    <td class="conclusion conclusion-nope">Awful. Garbage. Complete trash.<br/>Easy to use but always has a pause between loops.</td>
+                    <td class="conclusion conclusion-nope">Awful. Garbage. Complete trash.<br/>Easy to use but always has a pause between loops.
+                        <div>
+                            Pros
+                            <ul>
+                                <li>Easy to use</li>
+                                <li>Probably good documentaiton</li>
+                            </ul>
+                            Cons
+                            <ul>
+                                <li>You cannot get seamless loops</li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>HTMLAudioElement/new Audio(...) with event listener</td>
@@ -285,7 +310,20 @@ $(document).ready(function() {
                     <td>No pause</td>
                     <td></td>
                     <td></td>
-                    <td class="conclusion conclusion-kindofok">Performed well with no pauses between loops, but I'm a bit hesitant because you have to specify a buffer value; and do you need to figure this out for every different file or can you always go with .4? Will it work in all situations for all browsers? What is the secret number?</td>
+                    <td class="conclusion conclusion-kindofok">Performed well with no pauses between loops, but I'm a bit hesitant because you have to specify a buffer value; and do you need to figure this out for every different file or can you always go with .4? Will it work in all situations for all browsers? What is the secret number?
+                        <div>
+                            Pros
+                            <ul>
+                                <li>Can get seamless audio loops!</li>
+                                <li>Easy(ish) to use</li>
+                                <li>Probably good documentaiton</li>
+                            </ul>
+                            Cons
+                            <ul>
+                                <li>You have to set a value for the buffernumber, unsure if this will work in all situations</li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>SeamlessLoop.js</td>
@@ -361,7 +399,20 @@ $(document).ready(function() {
                     <td>No pause</td>
                     <td></td>
                     <td></td>
-                    <td class="conclusion conclusion-kindofok">I think this was good in all situations. It is pretty easy to use, however, it is not well documented and I had to do some guessing aka trial &amp; error to get it working. Also, you need to know the length of the track which is a pain &amp; not something I want to keep track of.</td>
+                    <td class="conclusion conclusion-kindofok">I think this was good in all situations. It is pretty easy to use, however, it is not well documented and I had to do some guessing aka trial &amp; error to get it working. Also, you need to know the length of the track which is a pain &amp; not something I want to keep track of.
+                        <div>
+                            Pros
+                            <ul>
+                                <li>Can get seamless audio loops!</li>
+                                <li>Easy(ish) to use</li>
+                            </ul>
+                            Cons
+                            <ul>
+                                <li>Poorly documented</li>
+                                <li>You have know the track length</li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Web Audio API</td>
@@ -472,7 +523,19 @@ $(document).ready(function() {
                     <td>No pause</td>
                     <td></td>
                     <td></td>
-                    <td class="conclusion conclusion-kindofok">It works, but annoying you can't run local in dev env because CORs blocks files from loading and it's pretty hard to setup and use. I think there is a visual code plugin that would get around this by hosting the files over localhost?</td>
+                    <td class="conclusion conclusion-kindofok">It works, but annoying you can't run local in dev env because CORs blocks files from loading and it's pretty hard to setup and use. I think there is a visual code plugin that would get around this by hosting the files over localhost?
+                        <div>
+                            Pros
+                            <ul>
+                                <li>Can get seamless audio loops!</li>
+                            </ul>
+                            Cons
+                            <ul>
+                                <li>Code is complex/low level</li>
+                                <li>CORs is a jerk when developing / blocks files</li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>loopify.js</td>
@@ -536,7 +599,20 @@ $(document).ready(function() {
                     <td>No pause</td>
                     <td></td>
                     <td></td>
-                    <td class="conclusion conclusion-kindofok">Mostly ok, but annoying you can't easily test locally. I think this is a wrapper around Web Audio API and it's a lot easier setup than using Web Audio API directly. CORs still a pain when in local dev environment because it blocks files; ditto above can get visual code plugin to fix CORs.</td>
+                    <td class="conclusion conclusion-kindofok">Mostly ok, but annoying you can't easily test locally. I think this is a wrapper around Web Audio API and it's a lot easier setup than using Web Audio API directly. CORs still a pain when in local dev environment because it blocks files; ditto above can get visual code plugin to fix CORs.
+                        <div>
+                            Pros
+                            <ul>
+                                <li>Can get seamless audio loops!</li>
+                                <li>Code is easy to use</li>
+                                <li>Document is ok I guess</li>
+                            </ul>
+                            Cons
+                            <ul>
+                                <li>CORs is a jerk when developing / blocks files</li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
